@@ -5,3 +5,45 @@
 // - больше среднего арифметического элементов A
 // - чётные
 
+//Ввод переменных
+int index = 0;
+int VarOfIndex = 10; // размерность массива
+
+//Конец ввода переменных
+
+//Модуль создания случайного массива 
+int [] CreateArray (int count)
+{
+    int index = 0;
+    int [] array = new int [count];
+    //Создание массива путем генерации случайных числе
+    while (index < count)
+    {
+        array [index] = new Random().Next(10, 100);
+        index++;
+         //??? Здесь указывал Console.Write(array [index]); чтобы проверить работоспособность модуля, но выводилась ошибка 000000000Unhandled.
+         //Почему нельзя здесь указывать?
+    }
+    return array;
+}
+
+//Запуск инициализации массива
+int [] Array_Main = CreateArray(VarOfIndex);
+
+
+//фильтрация данных
+
+//Первый фильтр
+
+//Второй Фильтр
+
+//Третий фильтр
+
+//Модуль вывода массива 
+while (index < VarOfIndex) 
+{
+    Console.Write($"{Array_Main[index]} ");
+    index++;
+}
+
+
