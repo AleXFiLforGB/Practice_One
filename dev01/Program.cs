@@ -9,41 +9,63 @@
 int index = 0;
 int VarOfIndex = 10; // размерность массива
 
-//Конец ввода переменных
-
 //Модуль создания случайного массива 
-int [] CreateArray (int count)
+void FillArrayRandomly (int [] Array_R)
 {
     int index = 0;
-    int [] array = new int [count];
     //Создание массива путем генерации случайных числе
-    while (index < count)
+    while (index < Array_R.Length)
     {
-        array [index] = new Random().Next(10, 100);
+        Array_R [index] = new Random().Next(10, 100);
         index++;
-         //??? Здесь указывал Console.Write(array [index]); чтобы проверить работоспособность модуля, но выводилась ошибка 000000000Unhandled.
-         //Почему нельзя здесь указывать?
     }
-    return array;
+}
+
+//Модуль вывода данных
+void PrintArray(int [] collection)
+{
+    int position = 0;
+    while (position < collection.Length)
+    {
+        Console.Write($"{collection[position]} ");
+        position++;
+    }
+    
 }
 
 //Запуск инициализации массива
-int [] Array_Main = CreateArray(VarOfIndex);
+int [] Array_Main = new int [VarOfIndex];
+FillArrayRandomly(Array_Main);
 
-
-//фильтрация данных
+Console.Write("Массив А: ");
+PrintArray(Array_Main);
 
 //Первый фильтр
-
-//Второй Фильтр
-
-//Третий фильтр
-
-//Модуль вывода массива 
-while (index < VarOfIndex) 
-{
-    Console.Write($"{Array_Main[index]} ");
-    index++;
+void Filter1 (int [] Array_F1)
+{   
+    index = 1;
+    int temp_index = 1;
+    int LastPos = Array_Main[0];
+    Array_F1 [0] = Array_Main[0]; 
+    while (index<Array_F1.Length)
+    {
+        if (Array_F1[index]>LastPos)
+        {
+            Array_F1[temp_index] = Array_Main[index];
+            LastPos = Array_Main[index];
+            temp_index++;
+        }
+        index++;
+    }
 }
+Filter1(Array_Main);
+Console.WriteLine();
 
+Console.Write("Массив B: ");
+PrintArray(Array_F1);
+
+
+
+Console.Write("Массив B: ");
+PrintArray(Array_Main);
 
