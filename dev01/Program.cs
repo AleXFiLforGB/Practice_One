@@ -66,6 +66,3 @@ PrintArray(Array_F1);
 
 
 
-Console.Write("Массив B: ");
-PrintArray(Array_Main);
-
